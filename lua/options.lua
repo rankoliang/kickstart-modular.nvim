@@ -64,4 +64,9 @@ vim.opt.scrolloff = 10
 -- Use spaces instead of tabs
 vim.opt.expandtab = true
 
+-- Folding
+vim.opt.foldmethod = 'expr'
+vim.opt.foldlevel = 2
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
 -- vim: ts=2 sts=2 sw=2 et
