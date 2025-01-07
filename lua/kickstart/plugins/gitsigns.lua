@@ -18,6 +18,7 @@ return {
       current_line_blame_opts = {
         delay = 0,
       },
+      current_line_blame_formatter = ' <author>, <author_time:%R> - [<abbrev_sha>] <summary>',
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
