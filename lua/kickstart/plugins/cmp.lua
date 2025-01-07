@@ -115,6 +115,16 @@ return {
           { name = 'path' },
         },
       }
+
+      local sql_config = {
+        sources = {
+          { name = 'vim-dadbod-completion' },
+          { name = 'buffer' },
+        },
+      }
+
+      cmp.setup.filetype('sql', sql_config)
+      cmp.setup.filetype('mysql', sql_config)
     end,
   },
 }
