@@ -17,7 +17,7 @@ return {
     after = {
       'copilot.lua',
     },
-    config = function()
+    init = function()
       require('copilot_cmp').setup()
     end,
   },
