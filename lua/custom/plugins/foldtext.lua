@@ -1,0 +1,3 @@
+return {
+  'jrudess/vim-foldtext',
+}
