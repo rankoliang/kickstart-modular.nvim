@@ -5,7 +5,7 @@ return {
   opts = {
     custom_highlights = function(colors)
       return {
-        Folded = { bg = colors.surface0 },
+        Folded = { bg = colors.surface0, fg = colors.subtext0 },
       }
     end,
     integrations = {
