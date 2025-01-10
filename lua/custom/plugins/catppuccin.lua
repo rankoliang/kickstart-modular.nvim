@@ -3,13 +3,16 @@ return {
   name = 'catppuccin',
   priority = 1000,
   opts = {
+    custom_highlights = function(colors)
+      return {
+        Folded = { bg = colors.surface0 },
+      }
+    end,
     integrations = {
       fzf = true,
     },
   },
   init = function()
     vim.cmd.colorscheme 'catppuccin'
-
-    vim.cmd.hi 'Folded guibg=#313244 guifg=#a6adc8'
   end,
 }
