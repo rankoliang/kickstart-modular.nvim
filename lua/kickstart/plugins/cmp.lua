@@ -34,14 +34,21 @@ return {
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+
+      -- Adds icons to completion
+      'onsails/lspkind.nvim',
     },
     config = function()
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
+      local lspkind = require 'lspkind'
 
       cmp.setup {
+        formatting = {
+          format = lspkind.cmp_format {},
+        },
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
