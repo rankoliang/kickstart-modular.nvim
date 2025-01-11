@@ -1,24 +1,14 @@
 return {
-  {
-    'zbirenbaum/copilot.lua',
-    config = function()
-      require('copilot').setup {
-        suggestion = {
-          enabled = false,
+  'zbirenbaum/copilot.lua',
+  config = function()
+    require('copilot').setup {
+      suggestion = {
+        auto_trigger = true,
+        hide_during_completion = false,
+        keymap = {
+          accept = '<C-l>',
         },
-        panel = {
-          enabled = false,
-        },
-      }
-    end,
-  },
-  {
-    'zbirenbaum/copilot-cmp',
-    after = {
-      'copilot.lua',
-    },
-    init = function()
-      require('copilot_cmp').setup()
-    end,
-  },
+      },
+    }
+  end,
 }
