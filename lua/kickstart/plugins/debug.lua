@@ -22,7 +22,7 @@ return {
     'jay-babu/mason-nvim-dap.nvim',
 
     -- Add your own debuggers here
-    'leoluz/nvim-dap-go',
+    -- 'leoluz/nvim-dap-go',
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -94,7 +94,7 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        'delve',
+        'node2',
       },
     }
 
@@ -137,12 +137,27 @@ return {
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     -- Install golang specific config
-    require('dap-go').setup {
-      delve = {
-        -- On Windows delve must be run attached or it crashes.
-        -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
-        detached = vim.fn.has 'win32' == 0,
+    -- require('dap-go').setup {
+    --   delve = {
+    --     -- On Windows delve must be run attached or it crashes.
+    --     -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
+    --     detached = vim.fn.has 'win32' == 0,
+    --   },
+    -- }
+
+    dap.configurations.javascript = {
+      {
+        type = 'node2',
+        request = 'attach',
+        console = 'integratedTerminal',
+        name = 'Attach to Node',
+        skipFiles = { '<node_internals>/**', '${workspaceFolder}/node_modules/**/*' },
+        internalConsoleOptions = 'neverOpen',
+        port = 9229,
+        restart = true,
       },
     }
+
+    dap.configurations.typescript = dap.configurations.javascript
   end,
 }
