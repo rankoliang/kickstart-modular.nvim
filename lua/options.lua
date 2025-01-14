@@ -66,7 +66,7 @@ vim.opt.expandtab = true
 
 -- Folding
 vim.opt.foldmethod = 'expr'
-vim.opt.foldlevelstart = 2
+vim.opt.foldlevelstart = 3
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldcolumn = 'auto'
 vim.opt.foldminlines = 3
