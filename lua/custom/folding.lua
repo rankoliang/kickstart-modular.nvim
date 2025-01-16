@@ -45,3 +45,16 @@ vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldcolumn = 'auto'
 vim.opt.fillchars = 'fold: '
 vim.opt.foldtext = 'v:lua.custom_foldtext()'
+
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  callback = function()
+    local max_foldlevel = 0
+    for i = 1, vim.api.nvim_buf_line_count(0) do
+      local fold_level = vim.fn.foldlevel(i)
+      if fold_level > max_foldlevel then
+        max_foldlevel = fold_level
+      end
+    end
+    vim.opt.foldlevel = math.max(vim.opt.foldminlines:get(), max_foldlevel - 2)
+  end,
+})
