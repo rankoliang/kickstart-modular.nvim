@@ -37,3 +37,11 @@ function _G.custom_foldtext()
   table.insert(result, { suffix, 'MoreMsg' })
   return result
 end
+
+vim.opt.foldmethod = 'expr'
+vim.opt.foldlevelstart = 4
+vim.opt.foldminlines = 3
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldcolumn = 'auto'
+vim.opt.fillchars = 'fold: '
+vim.opt.foldtext = 'v:lua.custom_foldtext()'
