@@ -65,10 +65,13 @@ vim.opt.scrolloff = 10
 vim.opt.expandtab = true
 
 -- Folding
+require 'custom.foldtext'
 vim.opt.foldmethod = 'expr'
-vim.opt.foldlevelstart = 3
+vim.opt.foldlevelstart = 4
+vim.opt.foldminlines = 3
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldcolumn = 'auto'
-vim.opt.foldminlines = 3
+vim.opt.fillchars = 'fold: '
+vim.opt.foldtext = 'v:lua.custom_foldtext()'
 
 -- vim: ts=2 sts=2 sw=2 et
