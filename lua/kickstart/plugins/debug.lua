@@ -76,6 +76,13 @@ return {
       end,
       desc = 'Debug: See last session result.',
     },
+    {
+      '<leader>de',
+      function()
+        require('dapui').eval()
+      end,
+      desc = '[D]ebug: [E]valuate',
+    },
   },
   config = function()
     local dap = require 'dap'
@@ -95,6 +102,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'node2',
+        'chrome',
       },
     }
 
@@ -189,8 +197,17 @@ return {
         port = 9229,
         restart = true,
       },
+      {
+        type = 'chrome',
+        request = 'launch',
+        name = 'Launch Chrome against localhost',
+        url = 'http://localhost:3000',
+        webRoot = '${workspaceFolder}',
+      },
     }
 
     dap.configurations.typescript = dap.configurations.javascript
+    dap.configurations.javascriptreact = dap.configurations.javascript
+    dap.configurations.typescriptreact = dap.configurations.javascript
   end,
 }
