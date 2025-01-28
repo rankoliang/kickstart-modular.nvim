@@ -12,9 +12,10 @@ return {
         enabled = true,
         preset = {
           keys = {
+            { icon = ' ', key = 'b', desc = 'Browse Files', action = ':Oil<CR>' },
+            { icon = '󰊢 ', key = 'l', desc = 'Lazygit', action = ':lua Snacks.lazygit()' },
             { icon = ' ', key = 'f', desc = 'Find File', action = ":lua Snacks.dashboard.pick('files')" },
             { icon = ' ', key = 'n', desc = 'New File', action = ':ene | startinsert' },
-            { icon = ' ', key = 'b', desc = 'Browse Files', action = '' },
             { icon = ' ', key = 'g', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
             { icon = ' ', key = 'r', desc = 'Recent Files', action = ":lua Snacks.dashboard.pick('oldfiles')" },
             { icon = ' ', key = 'c', desc = 'Config', action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
