@@ -15,6 +15,7 @@ return {
       notifier = { enabled = true },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
+      lazygit = { enabled = true },
     },
     keys = function()
       local Snacks = require 'snacks'
@@ -26,6 +27,20 @@ return {
           end,
           desc = 'Snacks: [G]it [B]rowse',
           mode = { 'n', 'v' },
+        },
+        {
+          '<leader>lg',
+          function(args)
+            Snacks.lazygit(args)
+          end,
+          desc = 'Snacks: [L]azy[G]it',
+        },
+        {
+          '<leader>lf',
+          function(args)
+            Snacks.lazygit.log_file(args)
+          end,
+          desc = 'Snacks: [L]azyGit log [F]ile',
         },
       }
     end,
