@@ -16,35 +16,35 @@ return {
           function()
             require('neotest').run.run()
           end,
-          'neotest: [T]est [N]earest',
+          desc = 'neotest: [T]est [N]earest',
         },
         {
           '<leader>tf',
           function()
             require('neotest').run.run(vim.fn.expand '%')
           end,
-          'neotest: [T]est [F]ile',
+          desc = 'neotest: [T]est [F]ile',
         },
         {
           '<leader>ts',
           function()
             require('neotest').summary.toggle()
           end,
-          'neotest: [T]est [S]ummary',
+          desc = 'neotest: [T]est [S]ummary',
         },
         {
           '<leader>tw',
           function()
             require('neotest').watch.toggle(vim.fn.expand '%')
           end,
-          'neotest: [T]est [W]atch',
+          desc = 'neotest: [T]est [W]atch',
         },
         {
           '<leader>ta',
           function()
             require('neotest').run.attach()
           end,
-          'neotest: [T]est [A]ttach',
+          desc = 'neotest: [T]est [A]ttach',
         },
       }
     end,
