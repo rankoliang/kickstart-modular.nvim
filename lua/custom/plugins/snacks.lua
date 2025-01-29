@@ -12,7 +12,7 @@ return {
         enabled = true,
         preset = {
           keys = {
-            { icon = ' ', key = 'b', desc = 'Browse Files', action = ':Oil<CR>' },
+            { icon = ' ', key = 'b', desc = 'Browse Files', action = ':Oil' },
             { icon = '󰊢 ', key = 'l', desc = 'Lazygit', action = ':lua Snacks.lazygit()' },
             { icon = ' ', key = 'f', desc = 'Find File', action = ":lua Snacks.dashboard.pick('files')" },
             { icon = ' ', key = 'n', desc = 'New File', action = ':ene | startinsert' },
