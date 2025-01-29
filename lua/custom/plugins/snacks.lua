@@ -36,6 +36,13 @@ return {
       notifier = { enabled = true },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true, folds = { open = true, git_hl = true } },
+      lazygit = {
+        configure = false,
+        -- Theme guide:
+        -- https://github.com/catppuccin/lazygit?tab=readme-ov-file
+        -- Update lazy git config for edit behavior:
+        -- https://github.com/folke/snacks.nvim/issues/526#issuecomment-2595932474
+      },
     },
     keys = function()
       local Snacks = require 'snacks'
