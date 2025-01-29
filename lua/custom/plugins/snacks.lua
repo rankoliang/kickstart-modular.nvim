@@ -31,24 +31,29 @@ return {
           { section = 'startup' },
         },
       },
-      gitbrowse = { enabled = true },
       indent = { enabled = true, animate = { enabled = false } },
       input = { enabled = true },
       notifier = { enabled = true },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true, folds = { open = true, git_hl = true } },
-      lazygit = { enabled = true },
     },
     keys = function()
       local Snacks = require 'snacks'
       return {
         {
-          '<leader>gb',
+          '<leader>gB',
           function(args)
             Snacks.gitbrowse(args)
           end,
           desc = 'Snacks: [G]it [B]rowse',
           mode = { 'n', 'v' },
+        },
+        {
+          '<leader>gb',
+          function()
+            Snacks.git.blame_line()
+          end,
+          desc = 'Snacks: [G]it [B]lame',
         },
         {
           '<leader>lg',
@@ -58,11 +63,25 @@ return {
           desc = 'Snacks: [L]azy[G]it',
         },
         {
-          '<leader>lf',
+          '<leader>gf',
           function(args)
             Snacks.lazygit.log_file(args)
           end,
-          desc = 'Snacks: [L]azyGit log [F]ile',
+          desc = 'Snacks: lazy[G]it log [F]ile',
+        },
+        {
+          '<leader>un',
+          function()
+            Snacks.notifier.hide()
+          end,
+          desc = 'Dismiss All Notifications',
+        },
+        {
+          '<leader>:',
+          function()
+            Snacks.terminal()
+          end,
+          desc = 'Toggle Terminal',
         },
       }
     end,
