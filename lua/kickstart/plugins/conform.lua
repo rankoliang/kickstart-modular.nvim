@@ -7,7 +7,19 @@ return {
       {
         '<leader>f',
         function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
+          local has_client = function(client_name)
+            for _, client in ipairs(vim.lsp.get_clients()) do
+              if client.name == client_name then
+                return true
+              end
+            end
+          end
+
+          if has_client 'eslint' then
+            vim.cmd 'EslintFixAll'
+          end
+
+          require('conform').format { async = true }
         end,
         mode = '',
         desc = '[F]ormat buffer',
@@ -24,25 +36,36 @@ return {
         if disable_filetypes[vim.bo[bufnr].filetype] then
           lsp_format_opt = 'never'
         else
-          lsp_format_opt = 'fallback'
+          lsp_format_opt = nil
         end
         return {
           timeout_ms = 500,
           lsp_format = lsp_format_opt,
         }
       end,
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        javascript = { 'prettierd', 'prettier', stop_after_first = true },
-        typescript = { 'prettierd', 'prettier', stop_after_first = true },
-        javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-        typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-        json = { 'prettierd', 'prettier', stop_after_first = true },
+      default_format_opts = {
+        lsp_format = 'fallback',
       },
+      formatters_by_ft = (function()
+        local javascript_formatters = {
+          'prettierd',
+          'prettier',
+          stop_after_first = true,
+        }
+
+        return {
+          lua = { 'stylua' },
+          -- Conform can also run multiple formatters sequentially
+          -- python = { "isort", "black" },
+          --
+          -- You can use 'stop_after_first' to run the first available formatter from the list
+          javascript = javascript_formatters,
+          typescript = javascript_formatters,
+          javascriptreact = javascript_formatters,
+          typescriptreact = javascript_formatters,
+          json = { 'prettierd', 'prettier', stop_after_first = true },
+        }
+      end)(),
     },
   },
 }
