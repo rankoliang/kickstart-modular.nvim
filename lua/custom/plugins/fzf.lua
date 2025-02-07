@@ -20,6 +20,8 @@ return {
     vim.keymap.set('n', '<leader>sg', fzf.live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sd', fzf.diagnostics_document, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', fzf.resume, { desc = '[S]earch [R]esume' })
+    vim.keymap.set('n', '<leader>sW', fzf.lsp_workspace_symbols, { desc = '[S]earch LSP [W]orkspace symbols' })
+    vim.keymap.set('n', '<leader>sD', fzf.lsp_document_symbols, { desc = '[S]earch LSP [D]ocument symbols' })
     vim.keymap.set('n', '<leader>s.', function()
       fzf.oldfiles { cwd_only = true, include_current_session = true }
     end, { desc = '[S]earch Recent Files ("." for repeat)' })
