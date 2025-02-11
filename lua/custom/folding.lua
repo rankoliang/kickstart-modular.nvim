@@ -55,6 +55,6 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
         max_foldlevel = fold_level
       end
     end
-    vim.opt.foldlevel = math.max(vim.opt.foldminlines:get(), max_foldlevel - 2)
+    vim.opt.foldlevel = math.max(vim.opt.foldminlines:get(), max_foldlevel)
   end,
 })
