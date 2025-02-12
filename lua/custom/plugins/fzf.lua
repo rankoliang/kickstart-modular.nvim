@@ -4,11 +4,17 @@ return {
   -- dependencies = { 'nvim-tree/nvim-web-devicons' },
   -- or if using mini.icons/mini.nvim
   dependencies = { 'echasnovski/mini.icons' },
-  opts = {
-    { 'telescope' },
-  },
   config = function()
     local fzf = require 'fzf-lua'
+
+    fzf.setup {
+      files = {
+        hidden = true,
+      },
+      grep = {
+        hidden = true,
+      },
+    }
 
     fzf.register_ui_select()
 
