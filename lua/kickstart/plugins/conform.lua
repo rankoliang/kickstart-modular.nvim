@@ -59,11 +59,13 @@ return {
           -- python = { "isort", "black" },
           --
           -- You can use 'stop_after_first' to run the first available formatter from the list
+          nix = { 'nixpkgs-fmt' },
           javascript = javascript_formatters,
           typescript = javascript_formatters,
           javascriptreact = javascript_formatters,
           typescriptreact = javascript_formatters,
           json = { 'prettierd', 'prettier', stop_after_first = true },
+          scss = { 'prettierd', 'prettier', stop_after_first = true },
         }
       end)(),
     },
