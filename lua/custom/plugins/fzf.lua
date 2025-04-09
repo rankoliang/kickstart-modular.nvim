@@ -7,14 +7,7 @@ return {
   config = function()
     local fzf = require 'fzf-lua'
 
-    fzf.setup {
-      files = {
-        hidden = true,
-      },
-      grep = {
-        hidden = true,
-      },
-    }
+    fzf.setup {}
 
     fzf.register_ui_select()
 
