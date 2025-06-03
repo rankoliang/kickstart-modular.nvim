@@ -46,6 +46,13 @@ return {
           end,
           desc = 'neotest: [T]est [A]ttach',
         },
+        {
+          '<leader>tt',
+          function()
+            require('neotest').output_panel.toggle()
+          end,
+          desc = 'neotest: [T]est [T]oggle Output',
+        },
       }
     end,
     opts = function()
