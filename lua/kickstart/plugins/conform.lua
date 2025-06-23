@@ -16,7 +16,7 @@ return {
           end
 
           if has_client 'eslint' then
-            vim.cmd 'EslintFixAll'
+            vim.cmd 'LspEslintFixAll'
           end
 
           require('conform').format { async = true }
