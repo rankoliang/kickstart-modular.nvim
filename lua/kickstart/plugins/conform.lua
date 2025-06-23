@@ -65,6 +65,7 @@ return {
           javascriptreact = javascript_formatters,
           typescriptreact = javascript_formatters,
           json = { 'prettierd', 'prettier', stop_after_first = true },
+          jsonc = { 'prettierd', 'prettier', stop_after_first = true },
           scss = { 'prettierd', 'prettier', stop_after_first = true },
         }
       end)(),
