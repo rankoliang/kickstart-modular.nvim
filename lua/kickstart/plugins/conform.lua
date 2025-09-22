@@ -15,7 +15,7 @@ return {
             end
           end
 
-          if has_client 'eslint' then
+          if has_client 'eslint' and vim.fn.exists ':LspEslintFixAll' then
             vim.cmd 'LspEslintFixAll'
           end
 
